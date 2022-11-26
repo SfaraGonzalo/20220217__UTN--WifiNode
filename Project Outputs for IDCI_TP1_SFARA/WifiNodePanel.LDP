@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNodePanel.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=wifinodepanel-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=wifinodepanel-slotholes.txt|DrillLayers=gtl,gbl

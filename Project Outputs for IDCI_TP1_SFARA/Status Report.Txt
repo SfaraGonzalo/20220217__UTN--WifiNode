@@ -1,0 +1,12 @@
+Source PCB Design WifiNodePanel.PcbDoc contains embedded board array. It is recomended to generate individual BOM for each embedded board PCB design.
+
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of Project [IDCI_TP1_SFARA.PrjPcb]
+   Generated File[Pick Place for WifiNodePanel.txt]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 12:27:23 On 17/11/2021

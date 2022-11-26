@@ -1,0 +1,392 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Net Status Report</title>
+</head>
+<body onload="document.getElementById('radio_mil').click()"><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Net Status Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">17/11/2021</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">02:21:42</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc" class="file"><acronym title="D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc">D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc</acronym></a></td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Units:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">
+<form><input type="radio" name="radio_units" id="radio_mm" onclick="changeUnits(this, 'mm')">mm<input type="radio" name="radio_units" id="radio_mil" onclick="changeUnits(this, 'mil')">mils</form>
+</td>
+</tr>
+</table><a name="IDFP5OPHRZVHXGPZX5MHMYVU2GYM4RTNOH0KPPFELHDNTBWVNUZVYD"><table>
+<tr>
+<th class="column1">Nets</th>
+<th class="column2">Layer</th>
+<th class="column3">Length</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.047mil|Location2.X=2479.433mil|Location1.Y=2206.984mil|Location2.Y=2627.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.047mil|Location2.X=2479.433mil|Location1.Y=2206.984mil|Location2.Y=2627.465mil|Absolute=True">+24V</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3915826">391.583mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.591mil|Location2.X=5873.173mil|Location1.Y=2118.008mil|Location2.Y=3353.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.591mil|Location2.X=5873.173mil|Location1.Y=2118.008mil|Location2.Y=3353.528mil|Absolute=True">+3.3V</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="87078461">8707.846mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2537.535mil|Location2.X=3315.535mil|Location1.Y=2265.528mil|Location2.Y=2690mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2537.535mil|Location2.X=3315.535mil|Location1.Y=2265.528mil|Location2.Y=2690mil|Absolute=True">+Vin</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="15395655">1539.566mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4215mil|Location2.X=4383.803mil|Location1.Y=2411.472mil|Location2.Y=2631.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4215mil|Location2.X=4383.803mil|Location1.Y=2411.472mil|Location2.Y=2631.244mil|Absolute=True">BOOT0</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3584577">358.458mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=3237.582mil|Location1.Y=3001.944mil|Location2.Y=3128.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=3237.582mil|Location1.Y=3001.944mil|Location2.Y=3128.054mil|Absolute=True">Com1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="8815974">881.597mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2164.347mil|Location2.X=5872.189mil|Location1.Y=2108.047mil|Location2.Y=3293.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2164.347mil|Location2.X=5872.189mil|Location1.Y=2108.047mil|Location2.Y=3293.528mil|Absolute=True">GND</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="135382582">13538.258mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=2678.528mil|Location1.Y=3205.606mil|Location2.Y=3364.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=2678.528mil|Location1.Y=3205.606mil|Location2.Y=3364.276mil|Absolute=True">NA1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3388517">338.852mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=2678.528mil|Location1.Y=2765.724mil|Location2.Y=2914.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2243.756mil|Location2.X=2678.528mil|Location1.Y=2765.724mil|Location2.Y=2914.394mil|Absolute=True">NC1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3347096">334.71mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4332.811mil|Location2.X=4559mil|Location1.Y=2120.567mil|Location2.Y=2829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4332.811mil|Location2.X=4559mil|Location1.Y=2120.567mil|Location2.Y=2829mil|Absolute=True">NRST</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="10358804">1035.88mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2261.472mil|Location2.Y=2731.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2261.472mil|Location2.Y=2731.638mil|Absolute=True">NetC10_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="7847849">784.785mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2391.905mil|Location2.Y=2751.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2391.905mil|Location2.Y=2751.323mil|Absolute=True">NetC12_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="6385666">638.567mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3352.811mil|Location2.X=3697.189mil|Location1.Y=2436.472mil|Location2.Y=2578.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3352.811mil|Location2.X=3697.189mil|Location1.Y=2436.472mil|Location2.Y=2578.409mil|Absolute=True">NetC16_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4351498">435.15mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4906.913mil|Location1.Y=2566.472mil|Location2.Y=2771.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4906.913mil|Location1.Y=2566.472mil|Location2.Y=2771.008mil|Absolute=True">NetC7_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="5049657">504.966mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2770.882mil|Location2.Y=2973.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.756mil|Location2.X=4827.189mil|Location1.Y=2770.882mil|Location2.Y=2973.528mil|Absolute=True">NetC8_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4126563">412.656mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3048.48mil|Location2.X=3455mil|Location1.Y=2796.472mil|Location2.Y=3348.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3048.48mil|Location2.X=3455mil|Location1.Y=2796.472mil|Location2.Y=3348.528mil|Absolute=True">NetD1_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="8748091">874.809mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3048.48mil|Location2.X=3342.189mil|Location1.Y=2781.472mil|Location2.Y=2876.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3048.48mil|Location2.X=3342.189mil|Location1.Y=2781.472mil|Location2.Y=2876.086mil|Absolute=True">NetD1_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2173174">217.317mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2325.528mil|Location2.X=2610.496mil|Location1.Y=2552.535mil|Location2.Y=2649.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2325.528mil|Location2.X=2610.496mil|Location1.Y=2552.535mil|Location2.Y=2649.055mil|Absolute=True">NetD3_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2315281">231.528mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3585mil|Location2.X=3698.173mil|Location1.Y=2281.472mil|Location2.Y=2453.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3585mil|Location2.X=3698.173mil|Location1.Y=2281.472mil|Location2.Y=2453.528mil|Absolute=True">NetD6_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2416181">241.618mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3377.654mil|Location2.X=3702.189mil|Location1.Y=2801.472mil|Location2.Y=3012.346mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3377.654mil|Location2.X=3702.189mil|Location1.Y=2801.472mil|Location2.Y=3012.346mil|Absolute=True">NetQ1_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4886848">488.685mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5641.827mil|Location2.X=5826.795mil|Location1.Y=2946mil|Location2.Y=3183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5641.827mil|Location2.X=5826.795mil|Location1.Y=2946mil|Location2.Y=3183.528mil|Absolute=True">NetR5_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2503848">250.385mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.827mil|Location2.X=5669.315mil|Location1.Y=2156.472mil|Location2.Y=2454mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.827mil|Location2.X=5669.315mil|Location1.Y=2156.472mil|Location2.Y=2454mil|Absolute=True">NetR6_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3226417">322.642mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.827mil|Location2.X=5511.835mil|Location1.Y=2241.472mil|Location2.Y=2454mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.827mil|Location2.X=5511.835mil|Location1.Y=2241.472mil|Location2.Y=2454mil|Absolute=True">NetR7_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2829747">282.975mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4324.622mil|Location2.X=5905.535mil|Location1.Y=2131mil|Location2.Y=2631.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4324.622mil|Location2.X=5905.535mil|Location1.Y=2131mil|Location2.Y=2631.244mil|Absolute=True">NetU1_58</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="10944017">1094.402mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4344.307mil|Location2.X=5984.276mil|Location1.Y=2106mil|Location2.Y=2631.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4344.307mil|Location2.X=5984.276mil|Location1.Y=2106mil|Location2.Y=2631.244mil|Absolute=True">NetU1_59</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="12925194">1292.519mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5886.827mil|Location2.X=5985mil|Location1.Y=2946mil|Location2.Y=3353.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5886.827mil|Location2.X=5985mil|Location1.Y=2946mil|Location2.Y=3353.528mil|Absolute=True">RST_Wifi</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4003025">400.303mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215mil|Location2.X=3337.189mil|Location1.Y=2146.945mil|Location2.Y=2578.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215mil|Location2.X=3337.189mil|Location1.Y=2146.945mil|Location2.Y=2578.409mil|Absolute=True">SW</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="5552690">555.269mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4071mil|Location2.X=4229.433mil|Location1.Y=2120.567mil|Location2.Y=2631.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4071mil|Location2.X=4229.433mil|Location1.Y=2120.567mil|Location2.Y=2631.244mil|Absolute=True">SWCLK</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="7249599">724.96mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3995mil|Location2.X=4329.433mil|Location1.Y=2120.567mil|Location2.Y=2731.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3995mil|Location2.X=4329.433mil|Location1.Y=2120.567mil|Location2.Y=2731.638mil|Absolute=True">SWIO</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="8283491">828.349mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3374.465mil|Location2.X=3698.173mil|Location1.Y=2591.472mil|Location2.Y=2753.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3374.465mil|Location2.X=3698.173mil|Location1.Y=2591.472mil|Location2.Y=2753.528mil|Absolute=True">VFB</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4303277">430.328mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to A%C3%B1o\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.811mil|Location2.X=4304mil|Location1.Y=2801.472mil|Location2.Y=3084mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.811mil|Location2.X=4304mil|Location1.Y=2801.472mil|Location2.Y=3084mil|Absolute=True">mcu_OUT0</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="7089488">708.949mils
+			</a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

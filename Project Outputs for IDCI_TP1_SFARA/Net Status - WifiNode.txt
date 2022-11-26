@@ -1,0 +1,38 @@
+Net Status Report
+Filename     : D:\Gonzalo\UTN\6to Año\IDCI\IDCI_TP1_SFARA\WifiNode.PcbDoc
+Date         : 17/11/2021
+Time         : 02:21:42
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    +24V, Signal Layers Only, 391.583mils
+    +3.3V, Signal Layers Only, 8707.846mils
+    +Vin, Signal Layers Only, 1539.566mils
+    BOOT0, Signal Layers Only, 358.458mils
+    Com1, Signal Layers Only, 881.597mils
+    GND, Signal Layers Only, 13538.258mils
+    NA1, Signal Layers Only, 338.852mils
+    NC1, Signal Layers Only, 334.71mils
+    NRST, Signal Layers Only, 1035.88mils
+    NetC10_1, Signal Layers Only, 784.785mils
+    NetC12_1, Signal Layers Only, 638.567mils
+    NetC16_1, Signal Layers Only, 435.15mils
+    NetC7_1, Signal Layers Only, 504.966mils
+    NetC8_1, Signal Layers Only, 412.656mils
+    NetD1_1, Signal Layers Only, 874.809mils
+    NetD1_2, Signal Layers Only, 217.317mils
+    NetD3_2, Signal Layers Only, 231.528mils
+    NetD6_1, Signal Layers Only, 241.618mils
+    NetQ1_1, Signal Layers Only, 488.685mils
+    NetR5_1, Signal Layers Only, 250.385mils
+    NetR6_1, Signal Layers Only, 322.642mils
+    NetR7_1, Signal Layers Only, 282.975mils
+    NetU1_58, Signal Layers Only, 1094.402mils
+    NetU1_59, Signal Layers Only, 1292.519mils
+    RST_Wifi, Signal Layers Only, 400.303mils
+    SW, Signal Layers Only, 555.269mils
+    SWCLK, Signal Layers Only, 724.96mils
+    SWIO, Signal Layers Only, 828.349mils
+    VFB, Signal Layers Only, 430.328mils
+    mcu_OUT0, Signal Layers Only, 708.949mils
+count : 30
